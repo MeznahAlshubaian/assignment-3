@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meznah's Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">  <!-- linking the stylesheet-->
+    <script src="js/script.js" defer></script>     <!-- linking the script-->
+</head>
+<body>
+
+<header class="header">      <!--header part (name, tagline, and references for page)-->
+    <div class="headerName">
+        <h1>Meznah Alshubaian</h1>
+        <p class="tagline">"Developing Skills, Creating Solutions."</p>
+    </div>
+    <nav class="nav">
+        <a href="#about">About</a>        <!-- for easier navigation -->
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <p id="greeting"></p>
+    <div class="theme-toggle-container">
+        <button id="modeToggle" onclick="toggleMode()">🌙</button>
+    </div>
+</header>
+
+<main>
+    <!-- Profile Pic - About -->
+    <img src="assets/profile-pic.webp" alt="Profile Picture" class="profilePic">
+    <section id="about" class="section">    <!-- the About section-->
+        <h2>About Me</h2>
+        <p>I am a Computer Science student with a passion for coding, problem-solving,
+            and building small projects to improve my skills. I enjoy exploring web development,
+            data structures and trying new techniques and technologies. Through this portfolio,
+            I showcase some of my projects I created while learning, highlighting my progress as a developer. </p>
+    </section>
+
+    <section id="projects" class="section"> <!-- the Projects section -->
+        <h2>Projects</h2>
+        <div class="filter-buttons">
+            <button onclick="filterProjects('all')">All</button>
+            <button onclick="filterProjects('web')">Web</button>
+            <button onclick="filterProjects('cpu')">CPU / Hardware</button>
+        </div>
+        <!-- Project 1 -->
+        <div class="projectDesc" data-category="web" data-project-id="event">
+            <img src="assets/event.png" alt="Event Management System screenshot">
+            <h3>Event Management System Platform</h3>
+            <p class="shortDesc">
+                The Event Management System is a web and mobile platform designed to help students,
+                faculty, and organizers manage university events easily.
+            </p>
+            <p class="longDesc hidden">
+                Users can browse upcoming events, register, and receive notifications. Organizers can create events, track attendance,
+                and manage registrations. The system supports secure payments for paid events and provides QR code tickets for
+                quick check-ins. Users can also rate events and contact organizers for inquiries. It includes
+                search and filter options, email notifications, and image uploads for event promotion.
+            </p>
+            <button onclick="toggleDescription(this)">Read More</button>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="projectDesc" data-category="web" data-project-id="hikaya">
+            <img src="assets/HTML.jpg" alt="Hikaya app screenshot">
+            <h3>Hikaya</h3>
+            <p class="shortDesc">
+                Hikaya is a web application that uses OpenAI’s API to generate personalized stories for children based on their preferences.
+            </p>
+            <p class="longDesc hidden">
+                The website allows parents to customize elements such as the child’s name, age, favorite themes, and the moral of the story.
+                Parents can also choose cultural elements or favorite characters to make the stories feel unique.
+                The AI then creates age-appropriate, engaging, and educational stories that make stories more fun and personal.
+            </p>
+            <button onclick="toggleDescription(this)">Read More</button>
+        </div>
+
+        <!-- Project 3: CPU -->
+        <div class="projectDesc" data-category="cpu" data-project-id="cpu">
+            <img src="assets/cpu.png" alt="16-bit pipelined CPU diagram">
+            <h3>16-bit Pipelined CPU</h3>
+            <p class="shortDesc">
+                Designed and implemented a 16-bit pipelined processor with custom RISC instructions for COE301.
+            </p>
+            <p class="longDesc hidden">
+                This project involved building a single-cycle 16-bit CPU with a 5-stage pipeline, including instruction fetch,
+                decode, execute, memory, and write-back stages. The CPU supports arithmetic, logical, branching, and memory instructions.
+                I tested hazard detection, forwarding, and pipelined control logic. The project demonstrates knowledge of
+                CPU architecture, instruction sets, and performance optimization techniques.
+            </p>
+            <button onclick="toggleDescription(this)">Read More</button>
+        </div>
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills" class="section">  <!-- an unordered list for some skills I have-->
+
+        <h2>Skills</h2>
+        <ul class="skillsList">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>Problem-Solving</li>
+            <li>AI Tools</li>
+        </ul>
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <!-- when the form is submitted a message will be shown to the user-->
+        <form id="contactForm" onsubmit="submitForm(event)">
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="message" placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <p id="formStatus"></p>
+    </section>
+</main>
+
+<footer class="footer">       <!-- adding a footer that contains my name and the year -->
+    <p>© <span id="year"></span> Meznah Alshubaian</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,274 @@
+body {
+    font-family: 'Arial', sans-serif; /* type */
+    background-color: #f4f4f4;
+    color: #452121;
+    margin: 0;   /* no space around the body and the page */
+    padding: 0;  /* no inner space */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between; /* spacing between elements*/
+    align-items: center; /
+    padding: 1rem 2rem;  /* spacing inside header*/
+    border-bottom: 2px solid #716565;
+    background-color: #ffffff;
+    box-shadow: 2px 5px rgba(0,0,0,0.05);
+}
+
+.headerName h1 {   /* for the name */
+    margin: 0;   /* no spacing */
+    font-size: 2rem;
+    text-align: center;
+}
+
+.headerName .tagline {  /* for the tagline*/
+    font-size: 1rem;
+    color: #716565;
+    text-align: left;
+    margin-top: 5px;  /* spacing between name and tagline */
+}
+
+/* Navigation */
+.nav a {
+    margin-left: 1rem;
+    text-decoration: none;  /* without the underline */
+    color: #452121;
+    font-weight: 500;
+}
+
+.nav a:hover {  /* when the user points the mouse on the links */
+    color: #716565;
+}
+
+/* Sections */
+.section {
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    max-width: 900px;
+    box-sizing: border-box; /* adding a border */
+    word-wrap: break-word; /* for different devices it does not overflow*/
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #452121;
+    border-bottom: 2px solid #716565;  /* adding a line */
+    padding-bottom: 0.3rem;
+}
+
+/* Profile Pic */
+.profilePic {
+    border-radius: 50%; /* circular image */
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 2rem auto 1rem auto;  /* centers the picture */
+    border: 2px solid #716565; /* adding a border around it */
+}
+
+/* About Section */
+#about {
+    border: 1.5px solid #716565;
+    border-radius: 10px; /* for rounded corners */
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Projects */
+#projects img {   /* for images in the project section */
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* rounded corners */
+}
+
+.projectDesc {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    margin: 1rem auto; /* spacing outside the section*/
+    padding: 1rem;
+    max-width: 95%;  /* not too wide */
+}
+
+.projectDesc h3 {
+    margin: 0.5rem 0;  /* for project titles */
+    color: #452121;
+}
+
+.projectDesc button {  /* styling the read more button */
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #716565;
+    color: white;
+    border-radius: 5px;
+}
+
+.projectDesc button:hover {
+    background: #452121;
+}
+
+.hidden { display: none; }  /* hiding the additional description */
+
+/* Skills */
+#skills {
+    border: 1.5px solid #716565;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 3px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: left; /* align bullets to the left */
+    max-width: 900px;
+    margin: 1rem auto;
+}
+
+.skillsList {
+    padding-left: 1.5rem;
+}
+
+.skillsList li {    /* styling the bullets*/
+    margin-bottom: 0.5rem;
+    color: #452121;
+    font-weight: 500;
+}
+
+/* Contact Form */
+form {
+    display: grid;  /* stack them in a neat way*/
+    gap: 0.75rem;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {  /* styling the send button  */
+    width: 90%;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #716565;
+    color: white;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {   /* when the user points the mouse on it */
+    background: #452121;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin: 2rem 0;
+    color: #999;
+}
+
+/* Greeting */
+#greeting {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: #716565;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.filter-buttons button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #716565;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-buttons button:hover { background: #452121; }
+
+/* Form Status / Messages */
+#formStatus {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    transition: opacity 0.5s;
+    color: #06d6a0; /* success message */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f4f4f4;
+}
+
+/* Backgrounds for sections and project cards */
+body.dark-mode .header,
+body.dark-mode .projectDesc,
+body.dark-mode #about,
+body.dark-mode #skills,
+body.dark-mode #contact {
+    background-color: #333;
+    border-color: #555; /* for borders */
+}
+
+/* Text color for most elements */
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode a,
+body.dark-mode button {
+    color: #f4f4f4; /* general text */
+}
+
+/* Headers */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #ddd8cd;
+}
+
+body.dark-mode #greeting,
+body.dark-mode #formStatus {
+    color: #716565; /* light green for messages */
+}
+
+/* Buttons */
+body.dark-mode button {
+    background-color: #716565;
+    color: white;
+}
+
+body.dark-mode button:hover {
+    background-color: #452121;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    #about, .projectDesc, #skills {
+        padding: 1rem;
+    }
+    .profilePic {
+        width: 100px;
+        height: 100px;
+    }
+    #contact input, #contact textarea, #contact button { width: 100%; box-sizing: border-box; }
+}
+
