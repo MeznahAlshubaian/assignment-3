@@ -11,13 +11,7 @@ function toggleDescription(btn) {
         btn.textContent = "Read More";
     }
 }
-// function: for the contact form
-function submitForm(event){
-    event.preventDefault();
-    // message to be shown
-    document.getElementById("formStatus").textContent = "Thank you! Your message has been received.";
-    document.getElementById("contactForm").reset(); // clear contact form
-}
+
 // function: for the greeting
 function updateGreeting() {
     const greetingEl = document.getElementById("greeting");
@@ -30,49 +24,89 @@ function updateGreeting() {
     greetingEl.textContent = greeting;
 }
 updateGreeting();
+
 // function: for filtering the projects
 function filterProjects(category) {
     const projects = document.querySelectorAll('.projectDesc');
     projects.forEach(proj => {
         if (category === 'all' || proj.dataset.category === category) {
-            proj.style.display = 'block';  // show
-        }
-        else {
-            proj.style.display = 'none';   // hide
+            proj.style.display = 'block';
+        } else {
+            proj.style.display = 'none';
         }
     });
 }
+const filterButtons = document.querySelectorAll('.filter-buttons button');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+
+        // Add active to clicked button
+        button.classList.add('active');
+
+        // Get category from data-filter attribute
+        const category = button.dataset.filter;
+
+        // Call your filter function
+        filterProjects(category);
+    });
+});
+
 // function: for validating the contact form input
-function submitForm(event){
+function submitForm(event) {
     event.preventDefault();
+
     const form = document.getElementById("contactForm");
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
     const status = document.getElementById("formStatus");
 
-    if(!name || !email || !message){
-        status.textContent = "Please fill in all fields!";
-        status.style.color = "red";
-        status.style.opacity = 0;
-        status.style.transition = "opacity 0.5s";
-        setTimeout(() => status.style.opacity = 1, 10);
-        return;
+    if (status.fadeTimeout) clearTimeout(status.fadeTimeout);
+    let msg = "";
+    let color = "";
+    if (!name || !email || !message) {
+        msg = "Please fill in all fields!";
+        color = "#b85c5c";
+    } else {
+        msg = "Thank you! Your message has been received.";
+        color = "#5c936d";
+        form.reset();
     }
 
-    status.textContent = "Thank you! Your message has been received.";
-    status.style.color = "green";
+    status.textContent = msg;
+    status.style.color = color;
     status.style.opacity = 0;
+    status.style.transition = "opacity 0.5s ease";
     setTimeout(() => status.style.opacity = 1, 10);
 
-    form.reset();
+    status.fadeTimeout = setTimeout(() => {
+        status.style.opacity = 0;
+    }, 4000);
 }
+
 // function: dark / light mode
 function toggleMode() {
     document.body.classList.toggle('dark-mode');
     const btn = document.getElementById('modeToggle');
     btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 }
+
+// fade-in animation
+const fadeEls = document.querySelectorAll(".fade-in");
+function fadeScroll() {
+    fadeEls.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 60) {
+            el.classList.add("visible");
+        }
+    });
+}
+
+window.addEventListener("scroll", fadeScroll);
+window.addEventListener("load", fadeScroll);
+
 
 async function loadGitHubRepos() {
     const username = "MeznahAlshubaian";
@@ -106,5 +140,4 @@ async function loadGitHubRepos() {
         status.textContent = "Error loading repositories.";
     }
 }
-
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
