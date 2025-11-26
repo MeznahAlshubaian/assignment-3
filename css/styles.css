@@ -1,8 +1,9 @@
-/* -------- Base -------- */
+/* Base */
 html {
     scroll-padding-top: 220px;
     scroll-behavior: smooth;
 }
+
 body {
     font-family: "Inter", Arial, sans-serif;
     background: #f7f7f7;
@@ -22,7 +23,7 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
-/* -------- Header -------- */
+/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -48,24 +49,53 @@ h2 {
     color: #776c6c;
 }
 
-/* -------- Navigation -------- */
+/* Navigation */
 .nav a {
     margin-left: 1.5rem;
     text-decoration: none;
     color: inherit;
     font-weight: 500;
     transition: 0.2s;
+    font-size: x-large;
 }
-.nav a:hover { color: #716565; }
 
-/* -------- Sections -------- */
+.nav a:hover {
+    color: #716565;
+}
+
+/* Dark/Light Mode Toggle */
+#modeToggle {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #716565;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+#modeToggle:hover {
+    background: #452121;
+}
+
+body.dark-mode #modeToggle {
+    background: #716565;
+    color: #fff;
+}
+
+body.dark-mode #modeToggle:hover {
+    background: #b3a5a5;
+}
+
+/* Sections */
 .section {
     padding: 2rem 1rem;
     margin: 0 auto;
     max-width: 900px;
 }
 
-/* -------- Profile Picture -------- */
+/* Profile Picture  */
 .profilePic {
     display: block;
     margin: 2rem auto 1rem;
@@ -76,7 +106,7 @@ h2 {
     object-fit: cover;
 }
 
-/* -------- Card-Style Containers -------- */
+/*  Card-Style Containers  */
 #about, .projectDesc, #skills, #contact {
     background: #fff;
     padding: 1.5rem;
@@ -85,129 +115,38 @@ h2 {
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
-/* -------- Project Grid -------- */
-#projects img {
-    width: 100%;
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Project Cards */
+.projectDesc {
+    background: #ffffff;
     border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 95%;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectDesc img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
     margin-bottom: 0.8rem;
 }
 
 .projectDesc h3 {
-    margin: 0.4rem 0;
-    font-size: 1.3rem;
-}
-
-/* Buttons general style */
-.projectDesc button,
-.filter-buttons button,
-button[type="submit"] {
-    padding: 0.45rem 1rem;
-    background: #716565;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-}
-.projectDesc button:hover,
-.filter-buttons button:hover,
-button[type="submit"]:hover {
-    background: #452121;
-    transform: scale(1.05);
-}
-
-.hidden { display: none; }
-
-/* -------- Filter Buttons -------- */
-.filter-buttons {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-.filter-buttons button { margin: 0 0.4rem; }
-
-/* -------- Skills -------- */
-.skillsList {
-    padding-left: 1.2rem;
-}
-.skillsList li {
-    margin-bottom: 0.6rem;
-    font-weight: 500;
-}
-
-/* -------- Contact Form -------- */
-form {
-    display: grid;
-    gap: 0.8rem;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 0.6rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-input:focus, textarea:focus {
-    border-color: #452121;
-    box-shadow: 0 0 5px rgba(69,33,33,0.3);
-}
-
-#formStatus {
-    text-align: center;
-    margin-top: 0.5rem;
-    font-weight: 600;
-    transition: 0.4s;
-}
-
-/* -------- Footer -------- */
-.footer {
-    text-align: center;
-    padding: 2rem 0;
-    color: #8c8c8c;
-    font-size: 0.9rem;
-}
-
-/* -------- Greeting -------- */
-#greeting {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #716565;
-}
-
-/* -------- Dark Mode -------- */
-body.dark-mode {
-    background: #181818;
-    color: #f0f0f0;
-}
-
-body.dark-mode .header,
-body.dark-mode #about,
-body.dark-mode .projectDesc,
-body.dark-mode #skills,
-body.dark-mode #contact {
-    background: #292929;
-    border-color: #444;
-    box-shadow: 0 3px 10px rgba(255,255,255,0.05);
-}
-
-body.dark-mode button:hover {
-    background: #b3a5a5;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-.projectDesc img {
-    height: 160px;
-    object-fit: cover;
-}
-.projectDesc {
-    display: flex;
-    flex-direction: column;
+    margin: 0.5rem 0;
+    color: #452121;
 }
 
 .projectDesc .shortDesc,
@@ -218,7 +157,143 @@ body.dark-mode button:hover {
 .projectDesc button {
     align-self: flex-start;
     margin-top: auto;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #716565;
+    color: white;
+    border-radius: 5px;
 }
+
+.projectDesc button:hover {
+    background: #452121;
+}
+.hidden {
+    display: none;
+}
+
+/* Filter Buttons  */
+.filter-buttons button {
+    margin: 0 0.4rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #716565;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.filter-buttons button:hover {
+    background: #452121;
+}
+
+.filter-buttons button.active {
+    background: #452121;
+}
+
+body.dark-mode .filter-buttons button {
+    background: #716565;
+    color: #fff;
+}
+
+body.dark-mode .filter-buttons button:hover {
+    background: #b3a5a5;
+}
+
+body.dark-mode .filter-buttons button.active {
+    background: #b3a5a5;
+}
+
+/*  Skills Section  */
+.skillsList {
+    padding-left: 1.2rem;
+}
+
+.skillsList li {
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+}
+
+#skills {
+    margin-bottom: 2rem;
+}
+
+/*  Contact Form  */
+form {
+    display: grid;
+    gap: 0.8rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: none;
+    background: #f7f7f7;
+    color: #3d2b2b;
+    font-weight: 500;
+    transition: background 0.3s, color 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(69,33,33,0.3);
+}
+
+button[type="submit"] {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #716565;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #452121;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background: #333;
+    color: #f0f0f0;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    background: #444;
+    box-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+body.dark-mode button[type="submit"] {
+    background: #716565;
+    color: #fff;
+}
+
+body.dark-mode button[type="submit"]:hover {
+    background: #b3a5a5;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #8c8c8c;
+    font-size: 0.9rem;
+}
+
+/*  Greeting  */
+#greeting {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #716565;
+}
+
+/* GitHub Repos */
 #githubRepos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -248,10 +323,12 @@ body.dark-mode button:hover {
     text-decoration: none;
     transition: background 0.2s, transform 0.15s;
 }
+
 .repo-card a:hover {
     background: #452121;
     transform: scale(1.05);
 }
+
 body.dark-mode .repo-card {
     background: #292929;
     box-shadow: 0 3px 10px rgba(255,255,255,0.05);
@@ -266,14 +343,45 @@ body.dark-mode .repo-card a:hover {
     background: #b3a5a5;
 }
 
+body.dark-mode .projectDesc h3 {
+    color: #b3a5a5;
+}
 
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
 
-/* -------- Responsive -------- */
-@media (max-width: 700px) {
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark Mode Global */
+body.dark-mode {
+    background: #181818;
+    color: #f0f0f0;
+}
+
+body.dark-mode .header,
+body.dark-mode #about,
+body.dark-mode .projectDesc,
+body.dark-mode #skills,
+body.dark-mode #contact {
+    background: #292929;
+    border-color: #444;
+    box-shadow: 0 3px 10px rgba(255,255,255,0.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
     .header {
         flex-direction: column;
         gap: 0.5rem;
         text-align: center;
+        padding: 1rem;
     }
 
     .nav {
@@ -282,7 +390,67 @@ body.dark-mode .repo-card a:hover {
     }
 
     .profilePic {
-        width: 110px;
-        height: 110px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .projectDesc img {
+        height: 140px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 0.6rem;
+        text-align: center;
+        padding: 1rem 1.5rem;
+    }
+
+    .nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .profilePic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .projectDesc img {
+        height: 150px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .projectDesc img {
+        height: 160px;
+    }
+}
+@media (min-width: 1201px) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .projectDesc img {
+        height: 180px;
     }
 }
