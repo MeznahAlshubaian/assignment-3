@@ -36,13 +36,15 @@
             I showcase some of my projects I created while learning, highlighting my progress as a developer. </p>
     </section>
 
-    <section id="projects" class="section"> <!-- the Projects section -->
+    <!-- the Projects section -->
+    <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="filter-buttons">
             <button onclick="filterProjects('all')">All</button>
             <button onclick="filterProjects('web')">Web</button>
             <button onclick="filterProjects('cpu')">CPU / Hardware</button>
         </div>
+        <div class="project-grid">
         <!-- Project 1 -->
         <div class="projectDesc" data-category="web" data-project-id="event">
             <img src="assets/event.png" alt="Event Management System screenshot">
@@ -90,6 +92,13 @@
             </p>
             <button onclick="toggleDescription(this)">Read More</button>
         </div>
+        </div>
+
+    </section>
+    <section id="github" class="section">
+        <h2>My GitHub Projects</h2>
+        <p id="githubStatus">Loading repositories...</p>
+        <div id="githubRepos" class="github-grid"></div>
     </section>
 
 

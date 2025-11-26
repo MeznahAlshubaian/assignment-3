@@ -73,3 +73,38 @@ function toggleMode() {
     const btn = document.getElementById('modeToggle');
     btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 }
+
+async function loadGitHubRepos() {
+    const username = "MeznahAlshubaian";
+
+    const status = document.getElementById("githubStatus");
+    const container = document.getElementById("githubRepos");
+
+    try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos`);
+
+        if (!response.ok) {
+            status.textContent = "Failed to load repos.";
+            return;
+        }
+
+        const repos = await response.json();
+        status.textContent = "";
+
+        repos.slice(0, 6).forEach(repo => {
+            const div = document.createElement("div");
+            div.classList.add("repo-card");
+
+            div.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description || "No description available."}</p>
+                <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+            `;
+            container.appendChild(div);
+        });
+    } catch (error) {
+        status.textContent = "Error loading repositories.";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadGitHubRepos);
