@@ -167,6 +167,9 @@ body.dark-mode #modeToggle:hover {
 .projectDesc button:hover {
     background: #452121;
 }
+body.dark-mode .projectDesc button:hover {
+    background: #b3a5a5;
+}
 .hidden {
     display: none;
 }

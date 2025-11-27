@@ -20,6 +20,7 @@
         <a href="#contact">Contact</a>
     </nav>
     <p id="greeting"></p>
+    <p id="timer"></p>
     <div class="theme-toggle-container">
         <button id="modeToggle" onclick="toggleMode()">🌙</button>
     </div>
@@ -43,6 +44,7 @@
             <button class="active" data-filter="all">All</button>
             <button data-filter="web">Web</button>
             <button data-filter="cpu">CPU / Hardware</button>
+            <button data-filter="AI">AI / ML </button>
         </div>
         <div class="project-grid">
         <!-- Project 1 -->
@@ -89,6 +91,21 @@
                     decode, execute, memory, and write-back stages. The CPU supports arithmetic, logical, branching, and memory instructions.
                     I tested hazard detection, forwarding, and pipelined control logic. The project demonstrates knowledge of
                     CPU architecture, instruction sets, and performance optimization techniques.
+                </p>
+                <button onclick="toggleDescription(this)">Read More</button>
+            </div>
+            <!-- Project 4: AI-->
+            <div class="projectDesc" data-category="AI" data-project-id="AI">
+                <img src="assets/AI.png" alt="User Behaviour Classification">
+                <h3>User Behaviour Classification</h3>
+                <p class="shortDesc">
+                   A machine learning model that analyzes mobile device usage patterns to classify user behaviour and support personalized mobile experiences.
+                </p>
+                <p class="longDesc hidden">
+                    This project focuses on classifying user behaviour based on subtle patterns in mobile device usage.
+                    It examines features such as app usage duration, battery consumption trends, and data activity to distinguish between similar user habits.
+                    Because differences in behaviour can be very small, the model uses machine learning techniques to identify hidden patterns and improve prediction accuracy.
+                    The goal is to better understand user habits and enable more personalized and adaptive mobile experiences.
                 </p>
                 <button onclick="toggleDescription(this)">Read More</button>
             </div>
