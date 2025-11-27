@@ -90,9 +90,28 @@ function submitForm(event) {
 // function: dark / light mode
 function toggleMode() {
     document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
     const btn = document.getElementById('modeToggle');
-    btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    btn.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem("mode", isDark ? "dark" : "light");
 }
+// saving the mode
+document.addEventListener("DOMContentLoaded", () => {
+    const savedMode = localStorage.getItem("mode");
+
+    if (savedMode === "dark") {
+        document.body.classList.add("dark-mode");
+        document.getElementById("modeToggle").textContent = "☀️";
+    }
+});
+
+// timer
+let seconds = 0;
+setInterval(() => {
+    seconds++;
+    document.getElementById("timer").textContent =
+        "Time on site: " + seconds + " seconds";
+}, 1000);
 
 // fade-in animation
 const fadeEls = document.querySelectorAll(".fade-in");
@@ -107,10 +126,8 @@ function fadeScroll() {
 window.addEventListener("scroll", fadeScroll);
 window.addEventListener("load", fadeScroll);
 
-
 async function loadGitHubRepos() {
     const username = "MeznahAlshubaian";
-
     const status = document.getElementById("githubStatus");
     const container = document.getElementById("githubRepos");
 
@@ -124,11 +141,9 @@ async function loadGitHubRepos() {
 
         const repos = await response.json();
         status.textContent = "";
-
         repos.slice(0, 6).forEach(repo => {
             const div = document.createElement("div");
             div.classList.add("repo-card");
-
             div.innerHTML = `
                 <h3>${repo.name}</h3>
                 <p>${repo.description || "No description available."}</p>
