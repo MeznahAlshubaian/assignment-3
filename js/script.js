@@ -37,7 +37,6 @@ function filterProjects(category) {
     });
 }
 const filterButtons = document.querySelectorAll('.filter-buttons button');
-
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
         // Remove active from all buttons
@@ -45,11 +44,7 @@ filterButtons.forEach(button => {
 
         // Add active to clicked button
         button.classList.add('active');
-
-        // Get category from data-filter attribute
         const category = button.dataset.filter;
-
-        // Call your filter function
         filterProjects(category);
     });
 });
@@ -126,11 +121,11 @@ function fadeScroll() {
 window.addEventListener("scroll", fadeScroll);
 window.addEventListener("load", fadeScroll);
 
+// function for fetching from gitHub
 async function loadGitHubRepos() {
     const username = "MeznahAlshubaian";
     const status = document.getElementById("githubStatus");
     const container = document.getElementById("githubRepos");
-
     try {
         const response = await fetch(`https://api.github.com/users/${username}/repos`);
 
@@ -156,3 +151,23 @@ async function loadGitHubRepos() {
     }
 }
 document.addEventListener("DOMContentLoaded", loadGitHubRepos);
+
+//Function for sorting projects
+function sortProjects(order) {
+    const grid = document.querySelector(".project-grid");
+    const projects = Array.from(grid.children);
+
+    projects.sort((a, b) => {
+        const titleA = a.querySelector("h3").textContent.toLowerCase();
+        const titleB = b.querySelector("h3").textContent.toLowerCase();
+
+        if (order === "az") {
+            return titleA.localeCompare(titleB);
+        } else {
+            return titleB.localeCompare(titleA);
+        }
+    });
+
+    // Re-append the sorted items
+    projects.forEach(project => grid.appendChild(project));
+}

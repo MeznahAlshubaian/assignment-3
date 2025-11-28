@@ -6,12 +6,14 @@ The site includes interactive and dynamic features written in **HTML**, **CSS**,
 **Key Features:**
 - Dark/Light mode toggle with saved preference
 - Project filtering by category (Web, CPU/Hardware, AI/ML)
+- Project Sorting from a --> z and vice versa.
 - Read More / Read Less buttons for detailed project descriptions
 - Timer to track time spent on the site
 - GitHub API integration to display latest repositories
 - Responsive design for multiple screen sizes
 - Interactive contact form with validation
 - Smooth fade-in animations
+
 
 The goal of this portfolio is to demonstrate my web development and problem-solving skills while building something practical and personal.
 

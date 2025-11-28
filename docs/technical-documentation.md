@@ -22,6 +22,7 @@ The HTML file contains the main structure of the portfolio:
 - Smooth fade-in animation while scrolling.
 - A timer that displays how long the visitor has spent on the site.
 - projects filter by category using interactive buttons.
+- projects sorting from a --> z and from z --> a.
 
 ---
 
@@ -64,6 +65,10 @@ The HTML file contains the main structure of the portfolio:
     - Fetches the public repositories from my gitHub account .
     - creates clean and styled repository cards.
     - Handles errors when cannot be opened.
+
+7. **`sortProjects()`**
+    - Sorts projects alphabetically from az or from za.
+    - No reloading of the page required.
 
 ---
 
