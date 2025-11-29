@@ -73,14 +73,15 @@ The HTML file contains the main structure of the portfolio:
 ---
 
 ## 4. Overall Key Features
-Greeting: Time-based message displayed in header.
-Theme Toggle: Switch between light/dark mode and save it in the local storage.
-Filtering: Buttons to show only selected project categories.
-Read More: Expand/collapse long descriptions.
-Contact Form/Validation: feedback messages.
-animation: smooth scroll animations.
-API integration: fetch gitHub repositories.
-Timer: counts time spent on site.
+- Greeting: Time-based message displayed in header.
+- Theme Toggle: Switch between light/dark mode and save it in the local storage.
+- Filtering: Buttons to show only selected project categories.
+- Sorting: soring projects alphabetically.
+- Read More: Expand/collapse long descriptions.
+- Contact Form/Validation: feedback messages.
+- Animation: smooth scroll animations.
+- API integration: fetch gitHub repositories.
+- Timer: counts time spent on site.
 
 ##  5. Technologies Used
 - **HTML**:  For overall structure and.
